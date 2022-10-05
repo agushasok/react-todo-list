@@ -5,8 +5,6 @@ import { TodoItem } from "./interfaces";
 
 const reducer = (state: TodoItem[], action: { type: string, [field: string]: any }) => {
     switch (action.type) {
-        case 'loadFromStorage':
-            return action.todos;
         case 'add':
             const newId = Math.max(...state.map(todo => todo.id), 1) + 1;
             return [{ id: newId, name: action.name, isDone: false }, ...state];
@@ -18,10 +16,10 @@ const reducer = (state: TodoItem[], action: { type: string, [field: string]: any
 }
 
 function App() {
-    let storagedTodos = localStorage.getItem('todos');
-    storagedTodos = storagedTodos ? JSON.parse(storagedTodos) : [];
+    const storagedTodos = localStorage.getItem('todos');
+    const initialTodos: TodoItem[] = storagedTodos ? JSON.parse(storagedTodos) : [];
 
-    const [todos, dispatch] = useReducer(reducer, storagedTodos);
+    const [todos, dispatch] = useReducer(reducer, initialTodos);
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
