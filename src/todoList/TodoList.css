@@ -1,0 +1,46 @@
+.TodoList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addInput {
+    width: 200px;
+    height: 20px;
+    padding-left: 10px;
+    border: #abafbe solid 2px;
+    border-radius: 10px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.button {
+    background-color: #adeeb2;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-width: 1px;
+}
+
+.addTodoWrapper {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.todoListWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.todoItem {
+    display: flex;
+    align-items: center;
+    border-bottom: #abafbe solid 1px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.todoName {
+    width: 400px;
+}
